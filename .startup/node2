@@ -1,3 +1,0 @@
-ssh -oStrictHostKeyChecking=no -i /home/ds_user/.ssh/id_rsa ds_user@node2 "cd /tmp && git clone https://github.com/russkatz/dse-halfday-workshop"
-ssh -oStrictHostKeyChecking=no -i /home/ds_user/.ssh/id_rsa ds_user@node2 "cd /tmp/dse-halfday-workshop && sudo ./startup dseconfig"
-ssh -oStrictHostKeyChecking=no -i /home/ds_user/.ssh/id_rsa ds_user@node2 "cd /tmp/dse-halfday-workshop && sudo ./startup restartdse"

@@ -13,11 +13,13 @@ then
   sudo tar -xvf /tmp/hugo_0.26_Linux-64bit.tar.gz -C /opt/hugo
 fi
 
-if [ $HOSTNAME == 'node0' ]
+if [ $HOSTNAME == 'dc0vm0' ]
 then
   echo 'HERE'
-  IP=$(cat /etc/hosts | grep node0_ext | awk '{print $1}')
-  echo 'ip   ' $IP
+  #IP=$(cat /etc/hosts | grep node0_ext | awk '{print $1}')
+  IP=$(curl --max-time 200 --retry 12 --retry-delay 5 -sS -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02" | \
+      jq .network.interface[0].ipv4.ipAddress[0].publicIpAddress | \
+      tr -d '"')  echo 'ip   ' $IP
 fi
 
 git submodule update --init
