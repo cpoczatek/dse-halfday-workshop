@@ -1,5 +1,10 @@
 #!/bin/sh
 
+echo "Downloading studio .."
+cd /tmp
+curl -sS -O https://dsetestdrivestor.blob.core.windows.net/studio/datastax-studio-6.0.0.tar.gz
+tar -xf datastax-studio-6.0.0.tar.gz
+
 echo "Downloading workbooks .."
 wget --no-check-certificate --content-disposition -P /tmp https://github.com/russkatz/dse-halfday-workshop/raw/master/files/dse-workshop-studio.tar.gz
 
