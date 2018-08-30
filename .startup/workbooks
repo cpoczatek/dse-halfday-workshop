@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# This doesn't actually download studio, grab it from blob stor and extract it in /tmp
+cd /tmp
+sversion='6.0.2'
+curl -sS -O https://dsetestdrivestor.blob.core.windows.net/studio/datastax-studio-$sversion.tar.gz
+tar -xf datastax-studio-$sversion.tar.gz
+mv datastax-studio-$sversion studio
+
 echo "Downloading workbooks .."
 wget --no-check-certificate --content-disposition -P /tmp https://github.com/russkatz/dse-halfday-workshop/raw/master/files/dse-workshop-studio.tar.gz
 
